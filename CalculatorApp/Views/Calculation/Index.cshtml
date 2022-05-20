@@ -8,7 +8,6 @@
 
 <script >
 function onSubmit() {
-    debugger;
     let data = { Value: $('#expressionString').val().toString() };
     
     $.ajax({
@@ -19,7 +18,6 @@ function onSubmit() {
         dataType: "json",
         
         success: function(results) {
-            debugger;
             let table = document.createElement("table");
             let tableBody = document.createElement("tbody");
 
