@@ -1,0 +1,51 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_Layout";
+}
+<style>
+
+</style>
+
+<script >
+function onSubmit() {
+    debugger;
+    let data = { Value: $('#expressionString').val().toString() };
+    
+    $.ajax({
+        type: "post",
+        url: "@Url.Action("GetExpression", "Calculation")",
+        data: JSON.stringify(data),
+        contentType: "application/json",
+        dataType: "json",
+        
+        success: function(results) {
+            debugger;
+            let table = document.createElement("table");
+            let tableBody = document.createElement("tbody");
+
+            results.forEach(function(rowData) {
+                let row = document.createElement("tr");
+                row.append(rowData)
+                tableBody.appendChild(row);
+            });
+            
+            table.appendChild(tableBody);
+            table.className = "table table-striped table-bordered"
+            document.body.appendChild(table);
+        }
+    });
+}
+</script>
+
+
+
+<form class="align-items-center">
+    <div class="row g-2">
+        <div class="col-10">
+            <input type="text" class="form-control" name="expression" id="expressionString" onkeyup="this.value = this.value.replace(/[^\d+-/*()]/g, '')" placeholder="Enter the expression">
+        </div>
+        <div class="col-auto">
+            <button type="button" onclick="onSubmit()" class="btn btn-primary mb-3" id="submit-expression">Calculate</button>
+        </div>
+    </div>
+</form>
