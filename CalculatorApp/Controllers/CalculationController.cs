@@ -179,6 +179,7 @@ public class CalculationController : Controller
         {
             "+" => firstNumber + secondNumber,
             "-" => firstNumber - secondNumber,
+            "~" => firstNumber - secondNumber,
             "*" => firstNumber * secondNumber,
             "/" => firstNumber / secondNumber,
             _ => 0
