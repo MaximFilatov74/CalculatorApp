@@ -2,5 +2,10 @@
 
 public class DataModel
 {
-    public string? Value { get; set; }
+    public DataModel(string value)
+    {
+        Value = value;
+    }
+
+    public string Value { get; }
 }
