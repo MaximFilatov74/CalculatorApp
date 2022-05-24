@@ -49,7 +49,7 @@ public class CalculationService : ICalculationService
             }
         }
         
-        results.Add(calculations.Count > 0 ? $"final Result: {calculations.Pop()}" : string.Empty);
+        results.Add(calculations.Count > 0 ? $"Result: {calculations.Pop()}" : string.Empty);
         return results;
     }
 
