@@ -2,4 +2,16 @@
 	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;&#xD;
   &lt;PhysicalFolder Path="C:\Users\Maxim\.nuget\packages\microsoft.jquery.unobtrusive.ajax\3.2.6" Loaded="True" /&gt;&#xD;
   &lt;Assembly Path="C:\Program Files\dotnet\packs\Microsoft.AspNetCore.App.Ref\6.0.4\ref\net6.0\Microsoft.AspNetCore.dll" /&gt;&#xD;
-&lt;/AssemblyExplorer&gt;</s:String></wpf:ResourceDictionary>
+&lt;/AssemblyExplorer&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=049907ed_002Dae2f_002D4677_002Da203_002D3b6163f590b1/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="IndexTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::9E08100A-3C6E-4F1D-BC09-A2F0956CE743::net6.0::CalculatorTests.CalculationControllerTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::9E08100A-3C6E-4F1D-BC09-A2F0956CE743::net6.0::CalculatorTests.CalculationServiceTests.Calculate_ReturnsAsListWithCorrectData&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::9E08100A-3C6E-4F1D-BC09-A2F0956CE743::net6.0::CalculatorTests.CalculationServiceTests.ExecuteOperation_ReturnsCorrectResultWhenPlus&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::9E08100A-3C6E-4F1D-BC09-A2F0956CE743::net6.0::CalculatorTests.CalculationServiceTests.ExecuteOperation_ReturnsCorrectResultWhenMinus&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::9E08100A-3C6E-4F1D-BC09-A2F0956CE743::net6.0::CalculatorTests.CalculationServiceTests.ExecuteOperation_ReturnsCorrectResultWhenUnaryMinus&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::9E08100A-3C6E-4F1D-BC09-A2F0956CE743::net6.0::CalculatorTests.CalculationServiceTests.ExecuteOperation_ReturnsCorrectResultWhenDivision&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::9E08100A-3C6E-4F1D-BC09-A2F0956CE743::net6.0::CalculatorTests.CalculationServiceTests.ExecuteOperation_ReturnsCorrectResultWhenMultiplication&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::9E08100A-3C6E-4F1D-BC09-A2F0956CE743::net6.0::CalculatorTests.ConvertServiceTests.ConvertToPostFix_CorrectPostfixForm&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

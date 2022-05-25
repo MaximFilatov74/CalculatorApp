@@ -5,17 +5,11 @@ namespace CalculatorApp.Services;
 public class CalculationService : ICalculationService
 {
     private readonly IConvertService _convertService;
-    private readonly IVerificationService _verificationService;
-    private readonly IPriorityService _priorityService;
+    private readonly List<string> _operationsList = new() { "+", "-", "~", "*", "/" };
 
-    public CalculationService(
-        IConvertService convertService, 
-        IVerificationService verificationService, 
-        IPriorityService priorityService)
+    public CalculationService(IConvertService convertService)
     {
         _convertService = convertService;
-        _verificationService = verificationService;
-        _priorityService = priorityService;
     }
 
     public List<string> Calculate(string expression)
@@ -30,9 +24,9 @@ public class CalculationService : ICalculationService
             {
                 calculations.Push(number);
             } 
-            else if (_priorityService.ContainsOperation(token))
+            else if (ContainsOperation(token))
             {
-                if (_verificationService.IsUnaryOperation(token))
+                if (IsUnaryOperation(token))
                 {
                     var numberWithUnaryOp = calculations.Count > 0 ? calculations.Pop() : 0;
                     calculations.Push(ExecuteOperation(token, 0, numberWithUnaryOp));
@@ -65,4 +59,8 @@ public class CalculationService : ICalculationService
             _ => 0
         };
     }
+
+    private static bool IsUnaryOperation(string symbol) => symbol.Equals("~");
+
+    private bool ContainsOperation(string symbol) => _operationsList.Contains(symbol);
 }

@@ -4,15 +4,15 @@ namespace CalculatorApp.Services;
 
 public class ConvertService: IConvertService
 {
-    private readonly IVerificationService _verificationService;
-    private readonly IPriorityService _priorityService;
+    private readonly Dictionary<string, int> _operationPriority = new() {
+        {"(", 0},
+        {"+", 1},
+        {"-", 1},
+        {"*", 2},
+        {"/", 2},
+        {"~", 3}
+    };
     
-    public ConvertService(IVerificationService verificationService, IPriorityService priorityService)
-    {
-        _verificationService = verificationService;
-        _priorityService = priorityService;
-    }
-
     public List<string> ConvertToPostFix(string expression)
     {
         var operationsStack = new Stack<char>();
@@ -21,7 +21,7 @@ public class ConvertService: IConvertService
 
         for (var position = 0; position < tokenString.Length; position++)
         {
-            if (_verificationService.IsOpeningBracket(tokenString[position]))
+            if (IsOpeningBracket(tokenString[position]))
             {
                 operationsStack.Push(tokenString[position]);
             }
@@ -29,20 +29,20 @@ public class ConvertService: IConvertService
             {
                 postfixExpressionList.Add(GetNumber(tokenString, ref position));
             }
-            else if (_verificationService.IsClosingBracket(tokenString[position]))
+            else if (IsClosingBracket(tokenString[position]))
             {
                 var topOperation = operationsStack.Pop();
 
-                while (!_verificationService.IsOpeningBracket(topOperation) && operationsStack.Count > 0)
+                while (!IsOpeningBracket(topOperation) && operationsStack.Count > 0)
                 {
                     postfixExpressionList.Add(topOperation.ToString());
                     topOperation = operationsStack.Pop();
                 }
             }
-            else if (_priorityService.ContainsOperation(tokenString[position].ToString())) 
+            else if (ContainsOperation(tokenString[position].ToString())) 
             {
                 while (operationsStack.Count > 0 
-                       && _priorityService.OperationPriorityCheck(operationsStack.Peek(), tokenString[position]))
+                       && OperationPriorityCheck(operationsStack.Peek(), tokenString[position]))
                 {
                     postfixExpressionList.Add(operationsStack.Pop().ToString());
                 }
@@ -59,7 +59,7 @@ public class ConvertService: IConvertService
         return postfixExpressionList;
     }
     
-    private string GetNumber(string analyzingString, ref int position)
+    private static string GetNumber(string analyzingString, ref int position)
     {
         var number = "";
         
@@ -67,7 +67,7 @@ public class ConvertService: IConvertService
         {
             var symbol = analyzingString[position];
 
-            if(char.IsDigit(symbol) || _verificationService.IsPointOrComa(symbol))
+            if(char.IsDigit(symbol) || IsPointOrComa(symbol))
             {
                 number += symbol;
             }
@@ -98,4 +98,15 @@ public class ConvertService: IConvertService
 
         return stringToChange;
     }
+    
+    private static bool IsOpeningBracket(char symbol) => symbol.Equals('(');
+    
+    private static bool IsClosingBracket(char symbol) => symbol.Equals(')');
+
+    private static bool IsPointOrComa(char symbol) => symbol.Equals('.') || symbol.Equals(',');
+    
+    private bool OperationPriorityCheck(char topOfTheStack, char token) => 
+        _operationPriority[topOfTheStack.ToString()] >= _operationPriority[token.ToString()];
+
+    private bool ContainsOperation(string token) => _operationPriority.ContainsKey(token);
 }
