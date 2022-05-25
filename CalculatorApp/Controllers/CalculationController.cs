@@ -1,7 +1,6 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using CalculatorApp.Models;
-using CalculatorApp.Services;
 using CalculatorApp.Services.Interfaces;
 
 namespace CalculatorApp.Controllers;

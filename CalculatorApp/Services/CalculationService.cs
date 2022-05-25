@@ -4,23 +4,23 @@ namespace CalculatorApp.Services;
 
 public class CalculationService : ICalculationService
 {
-    private readonly IParseService _parseService;
+    private readonly IConvertService _convertService;
     private readonly IVerificationService _verificationService;
     private readonly IPriorityService _priorityService;
 
     public CalculationService(
-        IParseService parseService, 
+        IConvertService convertService, 
         IVerificationService verificationService, 
         IPriorityService priorityService)
     {
-        _parseService = parseService;
+        _convertService = convertService;
         _verificationService = verificationService;
         _priorityService = priorityService;
     }
 
     public List<string> Calculate(string expression)
     {
-        var postfixList = _parseService.ConvertToPostFix(expression);
+        var postfixList = _convertService.ConvertToPostFix(expression);
         var calculations = new Stack<double>();
         var results = new List<string>();
 

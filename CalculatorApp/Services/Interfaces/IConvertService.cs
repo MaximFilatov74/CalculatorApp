@@ -1,6 +1,6 @@
 ﻿namespace CalculatorApp.Services.Interfaces;
 
-public interface IParseService
+public interface IConvertService
 {
     public List<string> ConvertToPostFix(string expression);
 }

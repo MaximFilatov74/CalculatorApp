@@ -2,12 +2,12 @@
 
 namespace CalculatorApp.Services;
 
-public class ParseService: IParseService
+public class ConvertService: IConvertService
 {
     private readonly IVerificationService _verificationService;
     private readonly IPriorityService _priorityService;
     
-    public ParseService(IVerificationService verificationService, IPriorityService priorityService)
+    public ConvertService(IVerificationService verificationService, IPriorityService priorityService)
     {
         _verificationService = verificationService;
         _priorityService = priorityService;

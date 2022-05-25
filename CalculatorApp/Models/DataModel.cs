@@ -1,4 +1,6 @@
-﻿namespace CalculatorApp.Models;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace CalculatorApp.Models;
 
 public class DataModel
 {
@@ -7,5 +9,6 @@ public class DataModel
         Value = value;
     }
 
+    [Required] 
     public string Value { get; }
 }
