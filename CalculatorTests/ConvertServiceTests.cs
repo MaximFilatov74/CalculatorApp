@@ -18,7 +18,5 @@ public class ConvertServiceTests
         Assert.True(result.SequenceEqual(PostfixExpressionList()));
     }
     
-    
-    
     private static List<string> PostfixExpressionList() => new() { "2", "2", "+" };
 }
