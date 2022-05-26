@@ -34,7 +34,7 @@ public class CalculationControllerTests
         var calculationController = new CalculationController(mock.Object);
         
         // Act
-        var result = calculationController.Index();
+        var result = calculationController.Privacy();
         
         // Assert
         Assert.IsType<ViewResult>(result);
