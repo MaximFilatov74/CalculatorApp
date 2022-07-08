@@ -25,7 +25,8 @@ public class CalculationControllerTests
         // Assert
         Assert.IsType<ViewResult>(result);
     }
-
+    
+    // TEST
     [Fact]
     public void Privacy_ReturnsAsViewResult()
     {
